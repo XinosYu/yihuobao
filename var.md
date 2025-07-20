@@ -16,13 +16,14 @@
 | rawMaterialList | rawMaterialList | Text | 原材料清单 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
+| hash | hash | String | 哈希值 |
 
 2. 生产信息表 (Production)
 
 | 字段名 | 变量名 | 类型 | 描述 |
 |--------|--------|------|------|
 | id | id | Integer | 主键 |
-| dishId | dishId | Integer | 外键，关联菜品 |
+| traceCode | traceCode | String | 溯源码 |
 | productionProcess | productionProcess | Text | 生产加工流程 |
 | processingOfficer | processingOfficer | String | 加工负责人 |
 | productCode | productCode | String | 产品代号 |
@@ -35,13 +36,14 @@
 | testResults | testResults | Text | 检测结果 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
+| hash | hash | String | 哈希值 |
 
  3. 仓储信息表 (Storage)
 
 | 字段名 | 变量名 | 类型 | 描述 |
 |--------|--------|------|------|
 | id | id | Integer | 主键 |
-| dishId | dishId | Integer | 外键，关联菜品 |
+| traceCode | traceCode | String | 溯源码 |
 | storageWarehouse | storageWarehouse | String | 贮存仓库名称 |
 | entryDate | entryDate | Date | 入库日期 |
 | lightLevel | lightLevel | Float | 光照强度 |
@@ -52,13 +54,14 @@
 | packagingStatus | packagingStatus | Text | 包装情况描述 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
+| hash | hash | String | 哈希值 |
 
  4. 运输信息表 (Transport)
 
 | 字段名 | 变量名 | 类型 | 描述 |
 |--------|--------|------|------|
 | id | id | Integer | 主键 |
-| dishId | dishId | Integer | 外键，关联菜品 |
+| traceCode | traceCode | String | 溯源码 |
 | transporter | transporter | String | 运输公司名称 |
 | transportOfficer | transportOfficer | String | 运输负责人 |
 | origin | origin | String | 出发地 |
@@ -68,17 +71,20 @@
 | transportGps | transportGps | Text | GPS轨迹数据 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
+| hash | hash | String | 哈希值 |
 
  5. 供应商信息表 (Supplier)
 
 | 字段名 | 变量名 | 类型 | 描述 |
 |--------|--------|------|------|
 | id | id | Integer | 主键 |
+| traceCode | traceCode | String | 溯源码 |
 | rawMaterialSupplier | rawMaterialSupplier | String | 原料供应商名称 |
 | materialOfficer | materialOfficer | String | 原料负责人 |
 | productTestCertificate | productTestCertificate | String | 产品检测证明编号 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
+| hash | hash | String | 哈希值 |
 
  6. 公司信息表 (Company)
 
@@ -94,29 +100,35 @@
 | companyPhoto | companyPhoto | Blob | 公司照片 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
- 
+| hash | hash | String | 哈希值 |
+| companyStatus | accountStatu | int | 公司状态 |
+
 7. 召回信息表 (Recall)
 
 | 字段名 | 变量名 | 类型 | 描述 |
 |--------|--------|------|------|
 | id | id | Integer | 主键 |
+| traceCode | traceCode | String | 溯源码 |
 | recallRecord | recallRecord | Text | 召回记录 |
 | recallHistory | recallHistory | Text | 召回历史 |
 | recallReason | recallReason | Text | 召回原因 |
 | recallOfficer | recallOfficer | String | 负责人 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
+| hash | hash | String | 哈希值 |
 
  8. 交接记录表 (Handover)
 
 | 字段名 | 变量名 | 类型 | 描述 |
 |--------|--------|------|------|
 | id | id | Integer | 主键 |
+| traceCode | traceCode | String | 溯源码 |
 | handoverTime | handoverTime | DateTime | 交接时间 |
 | confirmationRecord | confirmationRecord | Text | 确认记录 |
 | acceptanceResult | acceptanceResult | Text | 验收结果 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
+| hash | hash | String | 哈希值 |
 
 9. 用户表 (User)
 
@@ -124,11 +136,13 @@
 |--------|--------|------|------|
 | id | id | Integer | 主键 |
 | phoneNumber | phoneNumber | String | 手机号 |
+| userEmail | userEmail | string | 邮箱（找回密码）|
 | password | password | String | 密码(加密存储) |
 | verificationCode | verificationCode | String | 验证码 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
 | ipAddress | ipAddress | String | ip地址记录 |
+| accountStatus | accountStatu | int | 帐号状态 |
 
 10. 商家表 (Merchant)
 
@@ -147,10 +161,12 @@
 | passwordHint | passwordHint | String | 密码提示词 |
 | passwordHintAnswer | passwordHintAnswer | String | 密码提示答案 |
 | merchantVerificationCode | merchantVerificationCode | String | 验证码 |
+| accountStatus | accountStatu | int | 帐号状态 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
 | ipAddress | ipAddress | String | ip地址记录 |
 | registerAddress | registerAddress | String | 注册地址 |
+| hash | hash | String | 哈希值 |
 
  11. 员工表 (Employee)
 
@@ -164,38 +180,44 @@
 | position | position | String | 职位 |
 |healthCertificateNumber | healthCertificateNumber | String | 健康证明编号 |
 |healthCheckDate | healthCheckDate | Date | 最近一次健康检查日期 |
-|healthStatus | healthStatus | String | 健康状况描述（如合格、需复查等）| 
-|infectiousDiseaseInfo | infectiousDiseaseInfo | Text | 传染病相关信息（如有则记录具体情况，无则为空） | 
+|healthStatus | healthStatus | String | 健康状况描述（如合格、需复查等）|
+|infectiousDiseaseInfo | infectiousDiseaseInfo | Text | 传染病相关信息（如有则记录具体情况，无则为空） |
 | contactNumber | contactNumber | String | 联系电话 |
 | email | email | String | 电子邮箱 |
 | createdAt | createdAt | DateTime | 创建时间 |
 | updatedAt | updatedAt | DateTime | 更新时间 |
+| hash | hash | String | 哈希值 |
+| accountStatus | accountStatu | int | 帐号状态 |
 
+12. 审核表 (Audit)
 
-```
-Dish
-├── Production (1:1)
-├── Storage (1:n)
-├── Transport (1:n)
-├── Supplier (n:n)
-│
-Company
-├── Dish (1:n)
-├── Employee (1:n)
-│
-User
-│
-Merchant
-│
-Recall
-│
-Handover
-```
-1. Dish表: traceCode字段建立唯一索引
-2. Production表: dishId字段建立索引
-3. Storage表: dishId和storageWarehouse字段建立复合索引
-4. Transport表: dishId和transportBatchNumber字段建立复合索引
-5. Employee表: name和department字段建立复合索引
+| 字段名 | 变量名 | 类型 | 描述 |
+|--------|--------|------|------|
+| traceCode | traceCode | String | 溯源码 |
+| aiBeta | aiBeta | String | ai审核置信度 |
+| aiPass | aiPass | String | ai审核结果 |
+| aiPercent | aiPercent | String | ai问题判断 |
+| aiAcceptReason | aiAcceptReason | String | ai通过理由 |
+| aiRejectReason | aiRejectReason | String | ai拒绝理由 |
+| adminerAccout | adminerAccout | String | 审核员 |
+| auditResult | auditResult | int | 审核结果 |
+| auditReason | auditReason | String | 审核原因 |
+| createdAt | createdAt | DateTime | 创建时间 |
+| updatedAt | updatedAt | DateTime | 更新时间 |
+| hash | hash | String | 哈希值 |
+
+13. 管理表 (Adminer)
+
+| 字段名 | 变量名 | 类型 | 描述 |
+|--------|--------|------|------|
+| id | id | Integer | 主键 |
+| accoutNumber | accoutNumbe | String | 管理员账户 |
+| password | password | String | 密码(加密存储) |
+| department | department | String | 所属部门 |
+| contactNumber | contactNumber | String | 联系电话 |
+| email | email | String | 电子邮箱 |
+| createdAt | createdAt | DateTime | 创建时间 |
+| updatedAt | updatedAt | DateTime | 更新时间 |
 
 
 data:text/markdown;charset=utf-8
