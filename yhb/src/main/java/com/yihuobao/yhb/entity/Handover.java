@@ -1,0 +1,44 @@
+package com.yihuobao.yhb.entity;
+
+import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author admin
+ * @since 2025-07-17
+ */
+@Data
+  @EqualsAndHashCode(callSuper = false)
+    public class Handover implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
+      private Integer id;
+
+    @TableField("handoverTime")
+    private LocalDateTime handoverTime;
+
+    @TableField("confirmationRecord")
+    private String confirmationRecord;
+
+    @TableField("acceptanceResult")
+    private String acceptanceResult;
+
+    @TableField("createdAt")
+    private LocalDateTime createdAt;
+
+    @TableField("updatedAt")
+    private LocalDateTime updatedAt;
+
+  @TableField("traceCode")
+  private String traceCode;
+
+
+}
