@@ -1,0 +1,10 @@
+package com.yihuobao.yhb.dto;
+
+import lombok.Data;
+
+@Data
+public class LoginDTO {
+    private String account;
+    private String password;
+    private String code;
+}

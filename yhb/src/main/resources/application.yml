@@ -1,22 +1,22 @@
 server:
-  port: 8181
-
+  port: 8282
 spring:
 #--database--
   datasource:
    driver-class-name: com.mysql.cj.jdbc.Driver
-   url: jdbc:mysql://localhost:3306/yihuobaodb
+   url: jdbc:mysql://127.0.0.1:3306/yihuobaodb
    username: root
    password: 200502
 
 #--mail--
   mail:
-    protocol: smtp
+    protocol: smtps
     host: smtp.qq.com
-    port: 25
+    port: 465
     username: 3488570183@qq.com
-    password: Xyu441284.
+    password: zgnmbtmkvunpdbbc
     default-encoding: utf-8
+
 #--redis--
   redis:
     host: 127.0.0.1 # Redis服务器地址
@@ -37,13 +37,18 @@ spring:
 
 
 properties:
-  debug: true
+  mail:
+    smtp:
+      socketFactoryClass: javax.net.ssl.SSLSocketFactory
+      ssl: true
+      debug: true
 
 #--mybatis--
 mybatis:
   type-aliases-package: com.yihuobao.yhb.entity
   mapper-locations: classpath:mapper/*.xml
 
+#--dift--
 dify:
   url: http://106.53.46.231:8000/v1/chat-messages
   key:

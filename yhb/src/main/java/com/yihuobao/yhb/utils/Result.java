@@ -57,6 +57,13 @@ public class Result<T> {
         return result;
     }
 
+    public static <T> Result<T> success(T data, String code, String msg) {
+        Result<T> result = new Result<>(data);
+        result.setCode(code);
+        result.setMsg(msg);
+        return result;
+    }
+
     public static Result error(String code, String msg) {
         Result result = new Result();
         result.setCode(code);
@@ -66,6 +73,13 @@ public class Result<T> {
 
     public static Result error(String msg) {
         Result result = new Result();
+        result.setMsg(msg);
+        return result;
+    }
+
+    public static <T> Result<T> error(T data, String code, String msg) {
+        Result<T> result = new Result<>(data);
+        result.setCode(code);
         result.setMsg(msg);
         return result;
     }

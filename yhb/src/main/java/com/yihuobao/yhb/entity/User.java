@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.yihuobao.yhb.utils.RegexUtils;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -48,6 +49,15 @@ import lombok.EqualsAndHashCode;
     @TableField("userEmail")
     private String userEmail;
 
-  @TableField("accountStatus")
-  private int accountStatus;
+    @TableField("accountStatus")
+    private int accountStatus;
+
+    public void setAccount(String account) {
+      if(RegexUtils.isValidPhoneNumber(account)){
+        this.phoneNumber = account;
+      }
+      else if(RegexUtils.isValidEmail(account)){
+        this.userEmail = account;
+      }
+    }
 }

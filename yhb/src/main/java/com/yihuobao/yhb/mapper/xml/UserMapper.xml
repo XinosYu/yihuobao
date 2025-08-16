@@ -10,8 +10,14 @@
         select * from Users where phoneNumber = #{phoneNumber}
     </select>
 
+    <select id="selectByUserEmail" parameterType="String" resultType="com.yihuobao.yhb.entity.User">
+        select * from Users where userEmail = #{userEmail}
+    </select>
+
     <select id="selectByPhoneAndPassword" resultType="com.yihuobao.yhb.entity.User">
         select * from Users where phoneNumber = #{phoneNumber} and password = #{password}
     </select>
+
+
 
 </mapper>

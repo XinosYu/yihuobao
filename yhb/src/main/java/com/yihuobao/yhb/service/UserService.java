@@ -14,9 +14,11 @@ import com.yihuobao.yhb.utils.Result;
  */
 public interface UserService extends IService<User> {
 
-    Result register(String phoneNumber, String password, String code);
-    Result loginwithPassword(String phoneNumber, String password);
-    Result loginwithCode(String phoneNumber, String password);
+//    Result register(String phoneNumber, String password, String code);
+//    Result loginwithPassword(String phoneNumber, String password);
+//    Result loginwithCode(String phoneNumber, String password);
 
-    Result sendCode(String phoneNumber);
+    Result sendCode(String account);
+
+    Result registerAndLogin(String account, String password, String code);
 }

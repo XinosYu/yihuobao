@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户登录/注册</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .input-focus {
+                @apply focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+<div class="w-full max-w-md bg-white rounded-xl shadow p-8">
+    <h1 class="text-2xl font-bold text-center mb-6">用户登录/注册</h1>
+
+    <!-- 消息提示 -->
+    <div id="message" class="p-3 rounded-lg mb-5 hidden"></div>
+
+    <!-- 登录表单 -->
+    <form id="authForm" class="space-y-5">
+        <!-- 账号输入 -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">账号/邮箱/手机号</label>
+            <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <i class="fa fa-user"></i>
+                    </span>
+                <input type="text" id="account" class="w-full pl-10 py-3 border border-gray-300 rounded-lg input-focus"
+                       placeholder="请输入账号" required>
+            </div>
+        </div>
+
+        <!-- 密码输入 -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">密码</label>
+            <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <i class="fa fa-lock"></i>
+                    </span>
+                <input type="password" id="password" class="w-full pl-10 py-3 border border-gray-300 rounded-lg input-focus"
+                       placeholder="请输入密码" required>
+            </div>
+        </div>
+
+        <!-- 验证码 -->
+        <div class="grid grid-cols-2 gap-3">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">验证码</label>
+                <div class="relative">
+                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                            <i class="fa fa-shield"></i>
+                        </span>
+                    <input type="text" id="code" class="w-full pl-10 py-3 border border-gray-300 rounded-lg input-focus"
+                           placeholder="请输入验证码" required>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">获取验证码</label>
+                <button type="button" id="getCodeBtn"
+                        class="w-full py-3 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors">
+                    获取验证码
+                </button>
+            </div>
+        </div>
+
+        <!-- 登录按钮 -->
+        <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary/90 transition-colors">
+            登录/注册
+        </button>
+    </form>
+</div>
+
+<script>
+    // 显示消息提示
+    function showMessage(text, isError = false) {
+        const el = document.getElementById('message');
+        el.textContent = text;
+        el.className = `p-3 rounded-lg mb-5 ${isError ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`;
+    }
+
+    // 发送验证码请求
+    document.getElementById('getCodeBtn').addEventListener('click', async () => {
+        const account = document.getElementById('account').value.trim();
+        if (!account) {
+            showMessage('请输入账号', true);
+            return;
+        }
+
+        const btn = document.getElementById('getCodeBtn');
+        btn.disabled = true;
+        btn.textContent = '发送中...';
+
+        try {
+            // 发送JSON格式参数
+            const response = await fetch('/user/sendCode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',  // 指定JSON格式
+                },
+                body: JSON.stringify({ account: account })  // 封装为JSON对象
+            });
+
+            const result = await response.json();
+            if (result.code==='0') {
+                showMessage('验证码已发送');
+                // 处理倒计时逻辑...
+            } else {
+                showMessage(result.message || '获取验证码失败', true);
+                btn.disabled = false;
+                btn.textContent = '获取验证码';
+            }
+        } catch (error) {
+            showMessage('网络错误，请重试', true);
+            btn.disabled = false;
+            btn.textContent = '获取验证码';
+        }
+    });
+
+    // 登录/注册请求
+    document.getElementById('authForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const data = {
+            account: document.getElementById('account').value.trim(),
+            password: document.getElementById('password').value.trim(),
+            code: document.getElementById('code').value.trim()
+        };
+
+        const submitBtn = e.submitter;
+        submitBtn.disabled = true;
+        submitBtn.textContent = '处理中...';
+
+        try {
+            // 发送JSON格式参数
+            const response = await fetch('/user/registerAndLogin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',  // 指定JSON格式
+                },
+                body: JSON.stringify(data)  // 封装为JSON对象
+            });
+
+            const result = await response.json();
+            if (result.code==='0') {
+                localStorage.setItem('token', result.data.token);
+                showMessage('登录成功，正在跳转...');
+                setTimeout(() => window.location.href = '/index.html', 1000);
+            } else {
+                showMessage(result.message || '操作失败', true);
+                submitBtn.disabled = false;
+                submitBtn.textContent = '登录/注册';
+            }
+        } catch (error) {
+            showMessage('网络错误，请重试', true);
+            submitBtn.disabled = false;
+            submitBtn.textContent = '登录/注册';
+        }
+    });
+</script>
+</body>
+</html>
