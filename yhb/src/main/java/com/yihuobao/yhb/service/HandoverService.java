@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.service;
 
-import com.yihuobao.yhb.entity.Handover;
+import com.yihuobao.yhb.entity.po.Handover;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

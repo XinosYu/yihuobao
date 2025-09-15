@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.service.impl;
 
-import com.yihuobao.yhb.entity.Recall;
+import com.yihuobao.yhb.entity.po.Recall;
 import com.yihuobao.yhb.mapper.RecallMapper;
 import com.yihuobao.yhb.service.RecallService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -1,7 +1,8 @@
 package com.yihuobao.yhb.service;
 
-import com.yihuobao.yhb.entity.Merchant;
+import com.yihuobao.yhb.entity.po.Merchant;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yihuobao.yhb.utils.Result;
 
 /**
  * <p>
@@ -12,5 +13,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2025-07-17
  */
 public interface MerchantService extends IService<Merchant> {
+    Result sendCode(String account);
 
+    Result register(String account, String password, String code);
+
+    Result loginByPassword(String account, String password);
+
+    Result loginByCode(String account, String code);
 }

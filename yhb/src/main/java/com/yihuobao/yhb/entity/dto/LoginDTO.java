@@ -1,4 +1,4 @@
-package com.yihuobao.yhb.dto;
+package com.yihuobao.yhb.entity.dto;
 
 import lombok.Data;
 

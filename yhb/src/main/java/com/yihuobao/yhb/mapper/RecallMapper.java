@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.mapper;
 
-import com.yihuobao.yhb.entity.Recall;
+import com.yihuobao.yhb.entity.po.Recall;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

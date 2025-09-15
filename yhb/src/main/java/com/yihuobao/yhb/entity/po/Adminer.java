@@ -1,6 +1,5 @@
-package com.yihuobao.yhb.entity;
+package com.yihuobao.yhb.entity.po;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
@@ -13,37 +12,22 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author admin
- * @since 2025-07-17
+ * @since 2025-07-20
  */
 @Data
   @EqualsAndHashCode(callSuper = false)
-    public class Employee implements Serializable {
+    public class Adminer implements Serializable {
 
     private static final long serialVersionUID=1L;
 
       private Integer id;
 
-    private String name;
+    @TableField("accoutNumber")
+    private String accoutNumber;
 
     private String password;
 
-    private String role;
-
     private String department;
-
-    private String position;
-
-    @TableField("healthCertificateNumber")
-    private String healthCertificateNumber;
-
-    @TableField("healthCheckDate")
-    private LocalDate healthCheckDate;
-
-    @TableField("healthStatus")
-    private String healthStatus;
-
-    @TableField("infectiousDiseaseInfo")
-    private String infectiousDiseaseInfo;
 
     @TableField("contactNumber")
     private String contactNumber;
@@ -56,6 +40,5 @@ import lombok.EqualsAndHashCode;
     @TableField("updatedAt")
     private LocalDateTime updatedAt;
 
-  @TableField("accountStatus")
-  private int accountStatus;
+
 }

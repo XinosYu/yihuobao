@@ -1,9 +1,11 @@
-package com.yihuobao.yhb.entity;
+package com.yihuobao.yhb.entity.po;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+
+import com.yihuobao.yhb.utils.RegexUtils;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -74,6 +76,11 @@ import lombok.EqualsAndHashCode;
   @TableField("accountStatus")
   private int accountStatus;
 
+  public void setAccount(String account) {
+    if(RegexUtils.isValidEmail(account)){
+      this.registrationEmail = account;
+    }
+  }
 
 
 }

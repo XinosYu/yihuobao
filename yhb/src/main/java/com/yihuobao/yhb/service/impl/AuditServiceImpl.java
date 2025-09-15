@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.service.impl;
 
-import com.yihuobao.yhb.entity.Audit;
+import com.yihuobao.yhb.entity.po.Audit;
 import com.yihuobao.yhb.mapper.AuditMapper;
 import com.yihuobao.yhb.service.AuditService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

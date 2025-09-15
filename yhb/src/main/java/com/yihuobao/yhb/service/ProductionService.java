@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.service;
 
-import com.yihuobao.yhb.entity.Production;
+import com.yihuobao.yhb.entity.po.Production;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

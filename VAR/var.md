@@ -2,20 +2,17 @@
 
 | 字段名 | 变量名 | 类型 | 描述 |
 |--------|--------|------|------|
-| id | id | Integer | 主键 |
-| name | name | String | 菜品名称 |
-| traceCode | traceCode | String | 溯源码 |
-| packagingMaterial | packagingMaterial | String | 包装材质 |
-| ingredientList | ingredientList | Text | 配料表 |
-| productionDate | productionDate | Date | 生产日期 |
-| storageCondition | storageCondition | Text | 存储条件 |
-|shelfLife | shelfLife|	String | 保质期 |
-| usageMethod | usageMethod | Text | 使用方法 |
-| bestUseTime | bestUseTime | String | 最佳使用时间 |
-| allergenWarning | allergenWarning | Text | 致敏原提示 |
-| rawMaterialList | rawMaterialList | Text | 原材料清单 |
-| createdAt | createdAt | DateTime | 创建时间 |
-| updatedAt | updatedAt | DateTime | 更新时间 |
+| dish_id | id | Integer | 主键 |
+| dish_name | name | String | 菜品名称 |
+| dish_trace_code | traceCode | String | 溯源码 |
+| packaging_Material | packagingMaterial | String | 包装材质 |
+| ingredient_List | ingredientList | Text | 配料表 |
+| production_Date | productionDate | Date | 生产日期 |
+| storage_Condition | storageCondition | Text | 存储条件 |
+| shelf_Life | shelfLife | int | 保质期(天） |
+| allergen_Warning | allergenWarning | Text | 致敏原提示 |
+| created_Time | createdAt | DateTime | 创建时间 |
+| updated_time | updatedAt | DateTime | 更新时间 |
 | hash | hash | String | 哈希值 |
 
 2. 生产信息表 (Production)
@@ -29,9 +26,9 @@
 | productCode | productCode | String | 产品代号 |
 | productionLicense | productionLicense | String | 生产许可证号 |
 | implementationStandard | implementationStandard | String | 执行标准 |
-| productionWorkshopHygiene |	productionWorkshopHygiene |	Text |	生产车间卫生状况记录 |
-| operatorHealthCertificate |	operatorHealthCertificate | String | 操作人员健康证明编号 |
-| equipmentCleaningRecord |	equipmentCleaningRecord | Text |生产设备清洁记录 |
+| productionWorkshopHygiene | productionWorkshopHygiene |	Text | 生产车间卫生状况记录 |
+| operatorHealthCertificate | operatorHealthCertificate | String | 操作人员健康证明编号 |
+| equipmentCleaningRecord |equipmentCleaningRecord | Text |生产设备清洁记录 |
 | toolCleaningRecord | toolCleaningRecord | Text | 生产工具清洁记录 |
 | testResults | testResults | Text | 检测结果 |
 | createdAt | createdAt | DateTime | 创建时间 |
@@ -143,6 +140,8 @@
 | updatedAt | updatedAt | DateTime | 更新时间 |
 | ipAddress | ipAddress | String | ip地址记录 |
 | accountStatus | accountStatu | int | 帐号状态 |
+
+9(2).微信用户(wxUser)
 
 10. 商家表 (Merchant)
 

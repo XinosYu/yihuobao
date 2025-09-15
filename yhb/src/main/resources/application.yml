@@ -45,9 +45,17 @@ properties:
 
 #--mybatis--
 mybatis:
-  type-aliases-package: com.yihuobao.yhb.entity
-  mapper-locations: classpath:mapper/*.xml
-
+  mapper-locations: classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/**/*.xml,classpath*:com/yihuobao/yhb/mapper/**/*.xml
+  type-aliases-package: com.yihuobao.yhb.entity.po
+  table:
+    auto: none
+  model:
+    pack: com.yihuobao.yhb.entity.po
+  database:
+    type: mysql
+actable:
+  entity:
+    package: com.yihuobao.yhb.entity.po
 #--dift--
 dify:
   url: http://106.53.46.231:8000/v1/chat-messages

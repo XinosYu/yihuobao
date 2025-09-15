@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.service.impl;
 
-import com.yihuobao.yhb.entity.Storage;
+import com.yihuobao.yhb.entity.po.Storage;
 import com.yihuobao.yhb.mapper.StorageMapper;
 import com.yihuobao.yhb.service.StorageService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

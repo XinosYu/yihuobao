@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.service.impl;
 
-import com.yihuobao.yhb.entity.Supplier;
+import com.yihuobao.yhb.entity.po.Supplier;
 import com.yihuobao.yhb.mapper.SupplierMapper;
 import com.yihuobao.yhb.service.SupplierService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

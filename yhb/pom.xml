@@ -11,8 +11,8 @@
 	<groupId>com.yihuobao</groupId>
 	<artifactId>yhb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>yhb</name>
-	<description>yhb</description>
+	<name>yihuobao</name>
+	<description>yihuobao</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -43,11 +43,13 @@
 	</repositories>
 
 	<dependencies>
+		<!-- Spring Boot Web  Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- JUnit 测试框架 -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -55,34 +57,35 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>3.3.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus-generator</artifactId>
-			<version>3.3.2</version>
-		</dependency>
-
+		<!-- Spring 上下文 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>5.3.8</version>
 		</dependency>
 
+		<!-- MySQL 数据库连接驱动 -->
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
-			<version>8.0.31</version>
+			<version>8.3.0</version>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.3.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Spring Boot 测试 Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- MyBatis-Plus 测试 Starter -->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter-test</artifactId>
@@ -90,33 +93,55 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- Spring Boot WebFlux Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
+		<!-- fastJSON -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.78</version>
 		</dependency>
 
-		<!-- MyBatis-Plus -->
+		<!-- fastjson2 -->
+		<dependency>
+			<groupId>com.alibaba.fastjson2</groupId>
+			<artifactId>fastjson2</artifactId>
+			<version>2.0.52</version>
+		</dependency>
+
+		<!-- MyBatis-Plus Starter -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>3.4.2</version>
+			<version>3.3.2</version>
 		</dependency>
+
+		<!-- MyBatis-Plus 代码生成器 -->
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-generator</artifactId>
 			<version>3.3.2</version>
 		</dependency>
+
+		<!-- ACTable -->
+		<dependency>
+			<groupId>com.gitee.sunchenbin.mybatis.actable</groupId>
+			<artifactId>mybatis-enhance-actable</artifactId>
+			<version>1.1.1.RELEASE</version>
+		</dependency>
+
+		<!-- velocity 模板引擎 -->
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
 			<version>1.7</version>
 		</dependency>
+
+		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -124,12 +149,14 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- BCrypt 加密工具 -->
 		<dependency>
 			<groupId>org.mindrot</groupId>
 			<artifactId>jbcrypt</artifactId>
 			<version>0.4</version>
 		</dependency>
 
+		<!-- Fisco-bcos Java SDK -->
 		<dependency>
 			<groupId>org.fisco-bcos.java-sdk</groupId>
 			<artifactId>fisco-bcos-java-sdk</artifactId>
@@ -146,69 +173,87 @@
 			</exclusions>
 		</dependency>
 
+		<!-- Retrofit 网络请求框架 -->
 		<dependency>
 			<groupId>com.squareup.retrofit2</groupId>
 			<artifactId>retrofit</artifactId>
 			<version>2.9.0</version>
 		</dependency>
+
+		<!-- Retrofit Jackson 转换器 -->
 		<dependency>
 			<groupId>com.squareup.retrofit2</groupId>
 			<artifactId>converter-jackson</artifactId>
 			<version>2.9.0</version>
 		</dependency>
+
+		<!-- Retrofit RxJava2 适配器 -->
 		<dependency>
 			<groupId>com.squareup.retrofit2</groupId>
 			<artifactId>adapter-rxjava2</artifactId>
 			<version>2.9.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.alibaba.fastjson2</groupId>
-			<artifactId>fastjson2</artifactId>
-			<version>2.0.52</version>
-		</dependency>
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-security</artifactId>-->
-<!--		</dependency>-->
-
+		<!-- Redis Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
 
+		<!-- BeanUtils 工具类 -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.4</version>
 		</dependency>
 
-
+		<!-- Hutool 工具类库 -->
 		<dependency>
 			<groupId>cn.hutool</groupId>
 			<artifactId>hutool-all</artifactId>
 			<version>5.8.16</version>
 		</dependency>
 
+		<!-- Spring Boot Mail Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
+		<!-- Swagger2 API文档 -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>3.0.0</version>
 		</dependency>
+
+		<!-- Swagger UI -->
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>3.0.0</version>
 		</dependency>
 
+		<!-- Netty 网络编程框架 -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.53.Final</version>
+		</dependency>
 
+		<!-- OkHttp 网络请求客户端 -->
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>4.12.0</version>
+		</dependency>
 
+		<!-- AssertJ 断言库 -->
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.25.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -216,8 +261,17 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.3.0.RELEASE</version>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+					<fork>true</fork>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

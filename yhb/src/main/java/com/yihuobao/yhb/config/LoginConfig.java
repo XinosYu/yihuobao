@@ -33,7 +33,8 @@ public class LoginConfig implements WebMvcConfigurer {
                         "/js/**",
                         "/img/**",
                         "/login.html",
-                        "/register.html"
+                        "/register.html",
+                        "/api/**"
                 );
     }
 }

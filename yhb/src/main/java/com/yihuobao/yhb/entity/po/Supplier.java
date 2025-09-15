@@ -1,4 +1,4 @@
-package com.yihuobao.yhb.entity;
+package com.yihuobao.yhb.entity.po;
 
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -16,29 +16,26 @@ import lombok.EqualsAndHashCode;
  */
 @Data
   @EqualsAndHashCode(callSuper = false)
-    public class Handover implements Serializable {
+    public class Supplier implements Serializable {
 
     private static final long serialVersionUID=1L;
 
       private Integer id;
 
-    @TableField("handoverTime")
-    private LocalDateTime handoverTime;
+    @TableField("rawMaterialSupplier")
+    private String rawMaterialSupplier;
 
-    @TableField("confirmationRecord")
-    private String confirmationRecord;
+    @TableField("materialOfficer")
+    private String materialOfficer;
 
-    @TableField("acceptanceResult")
-    private String acceptanceResult;
+    @TableField("productTestCertificate")
+    private String productTestCertificate;
 
     @TableField("createdAt")
     private LocalDateTime createdAt;
 
     @TableField("updatedAt")
     private LocalDateTime updatedAt;
-
-  @TableField("traceCode")
-  private String traceCode;
 
 
 }

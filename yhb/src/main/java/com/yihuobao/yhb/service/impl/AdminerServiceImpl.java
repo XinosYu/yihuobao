@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.service.impl;
 
-import com.yihuobao.yhb.entity.Adminer;
+import com.yihuobao.yhb.entity.po.Adminer;
 import com.yihuobao.yhb.mapper.AdminerMapper;
 import com.yihuobao.yhb.service.AdminerService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

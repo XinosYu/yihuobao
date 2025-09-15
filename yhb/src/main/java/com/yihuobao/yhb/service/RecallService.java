@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.service;
 
-import com.yihuobao.yhb.entity.Recall;
+import com.yihuobao.yhb.entity.po.Recall;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

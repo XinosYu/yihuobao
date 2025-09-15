@@ -1,87 +1,60 @@
 package com.yihuobao.yhb.utils;
 
+import lombok.Data;
+
+@Data
 public class Result<T> {
-    private String code;
-    private String msg;
-    private T data;
 
-    public String getCode() {
-        return code;
+
+    private int code;//状态码
+
+    private String msg;//说明
+
+    private boolean status;//成功或失败的标识
+
+    private T data;//数据
+
+    private Result() {
     }
 
-    public void setCode(String code) {
+    private Result(Integer code, Boolean status, String msg, T data) {
         this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
+        this.status = status;
         this.msg = msg;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public Result() {
-    }
-
-    public Result(T data) {
         this.data = data;
     }
 
     public static Result success() {
         Result result = new Result<>();
-        result.setCode("0");
+        result.setStatus(true);
         result.setMsg("成功");
         return result;
     }
 
     public static <T> Result<T> success(T data) {
-        Result<T> result = new Result<>(data);
-        result.setCode("0");
-        result.setMsg("成功");
-        return result;
+        return new Result<>(200,true,"成功",data);
     }
 
-    public static <T> Result<T> success(T data,String msg) {
-        Result<T> result = new Result<>(data);
-        result.setCode("0");
-        result.setMsg(msg);
-        return result;
+    public static <T> Result<T> success(String msg, T data) {
+        return new Result<>(200,true,msg,data);
     }
 
-    public static <T> Result<T> success(T data, String code, String msg) {
-        Result<T> result = new Result<>(data);
-        result.setCode(code);
-        result.setMsg(msg);
-        return result;
+    public static <T> Result<T> success(int code, String msg, T data) {
+        return new Result<>(code,true,msg,data);
     }
 
-    public static Result error(String code, String msg) {
-        Result result = new Result();
-        result.setCode(code);
-        result.setMsg(msg);
+    public static Result error(int code, String msg) {
+        Result result = new Result<>(code,false,msg,null);
         return result;
     }
 
     public static Result error(String msg) {
-        Result result = new Result();
-        result.setMsg(msg);
+        Result result = new Result(400,false,msg,null);
         return result;
     }
 
-    public static <T> Result<T> error(T data, String code, String msg) {
-        Result<T> result = new Result<>(data);
-        result.setCode(code);
-        result.setMsg(msg);
-        return result;
+    public static <T> Result<T> error( int code, String msg, T data) {
+        return new Result<>(code,false,msg,data);
     }
 }
 

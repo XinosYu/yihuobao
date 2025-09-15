@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.service;
 
-import com.yihuobao.yhb.entity.User;
+import com.yihuobao.yhb.entity.po.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yihuobao.yhb.utils.Result;
 
@@ -14,11 +14,16 @@ import com.yihuobao.yhb.utils.Result;
  */
 public interface UserService extends IService<User> {
 
-//    Result register(String phoneNumber, String password, String code);
-//    Result loginwithPassword(String phoneNumber, String password);
-//    Result loginwithCode(String phoneNumber, String password);
-
     Result sendCode(String account);
 
-    Result registerAndLogin(String account, String password, String code);
+    Result register(String account, String password, String code);
+
+    Result loginByPassword(String account, String password);
+
+    Result loginByCode(String account, String code);
+
+    Result loginByWeChat(String code);
+
+    Result deleteUser(int id);
+    Result editUser(int id);
 }

@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.utils;
 
-import com.yihuobao.yhb.dto.UserDTO;
+import com.yihuobao.yhb.entity.dto.UserDTO;
 
 public class UserHolder {
     private static final ThreadLocal<UserDTO> tl = new ThreadLocal<>();

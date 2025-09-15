@@ -1,4 +1,4 @@
-package com.yihuobao.yhb.entity;
+package com.yihuobao.yhb.entity.po;
 
 import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableField;

@@ -1,7 +1,7 @@
 package com.yihuobao.yhb.utils;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.yihuobao.yhb.dto.UserDTO;
+import com.yihuobao.yhb.entity.dto.UserDTO;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.servlet.HandlerInterceptor;
 

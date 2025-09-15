@@ -1,6 +1,6 @@
 package com.yihuobao.yhb.mapper;
 
-import com.yihuobao.yhb.entity.Employee;
+import com.yihuobao.yhb.entity.po.Employee;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
