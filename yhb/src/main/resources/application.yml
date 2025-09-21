@@ -4,9 +4,9 @@ spring:
 #--database--
   datasource:
    driver-class-name: com.mysql.cj.jdbc.Driver
-   url: jdbc:mysql://127.0.0.1:3306/yihuobaodb
-   username: root
-   password: 200502
+   url: jdbc:mysql://106.53.46.231:3306/yihuobaodb
+   username: bc666
+   password: 124578
 
 #--mail--
   mail:
@@ -16,6 +16,10 @@ spring:
     username: 3488570183@qq.com
     password: zgnmbtmkvunpdbbc
     default-encoding: utf-8
+
+weixin:
+  appid: wx5ac13b1158b0319f
+  secret: '应用密钥'
 
 #--redis--
   redis:

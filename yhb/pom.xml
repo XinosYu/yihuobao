@@ -43,7 +43,7 @@
 	</repositories>
 
 	<dependencies>
-		<!-- Spring Boot Web  Starter -->
+		<!-- Spring Boot Web Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -70,12 +70,6 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<version>8.3.0</version>
 			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<version>8.3.0</version>
-			<scope>compile</scope>
 		</dependency>
 
 		<!-- Spring Boot 测试 Starter -->
@@ -200,6 +194,12 @@
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
 
+		<!-- Commons Pool2 (Redis连接池依赖) -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+		</dependency>
+
 		<!-- BeanUtils 工具类 -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
@@ -253,6 +253,13 @@
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
 			<version>3.25.3</version>
+		</dependency>
+
+		<!-- BouncyCastle 加密库 -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.70</version>
 		</dependency>
 	</dependencies>
 

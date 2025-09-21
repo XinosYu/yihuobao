@@ -144,7 +144,23 @@
 | ip_address | ipAddress | String | ip地址记录 |
 | account_status | accountStatu | int | 帐号状态 |
 
-9(2).微信用户(wxUser)
+9(2).微信用户(WechatUser)
+| 字段名         | 变量名      | 类型     | 描述                                       |
+|----------------|-------------|----------|--------------------------------------------|
+| user_id        | id          | Integer  | 主键，自增唯一标识                         |
+| open_id        | openId      | String   | 微信小程序用户openId（当前小程序唯一标识） |
+| union_id       | unionId     | String   | 微信开放平台unionId（跨应用唯一标识用户）   |
+| nick_name      | nickName    | String   | 用户昵称                                   |
+| gender         | gender      | Integer  | 用户性别（如 `0` 未知、`1` 男性、`2` 女性） |
+| country        | country     | String   | 用户所在国家                               |
+| province       | province    | String   | 用户所在省份                               |
+| city           | city        | String   | 用户所在城市                               |
+| phone_number   | phoneNumber | String   | 用户手机号码                               |
+| email          | userEmail   | String   | 用户电子邮箱（用于账号相关操作，如找回密码） |
+| account_status | accountStatus | Integer | 账号状态（如 `1` 正常、`0` 冻结等）|
+| created_time   | createdAt   | DateTime | 记录创建时间（自动生成）|
+| update_time    | updatedAt   | DateTime | 记录更新时间（自动更新）|
+| ip_address     | ipAddress   | String   | 用户操作时的IP地址                         |
 
 10. 商家表 (Merchant)
 

@@ -17,9 +17,9 @@ public class Main {
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.MYSQL);
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUrl("jdbc:mysql://localhost:3306/yihuobaodb");
-        dsc.setUsername("root");
-        dsc.setPassword("200502");
+        dsc.setUrl("jdbc:mysql://106.53.46.231:3306/yihuobaodb");
+        dsc.setUsername("bc666");
+        dsc.setPassword("124578");
         autogenerator.setDataSource(dsc);
 
         // 全局配置  
@@ -46,7 +46,7 @@ public class Main {
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         //全部的表
-        strategy.setInclude("dish","production","Storage","Transport","Supplier","Company","Recall","Handover","User","Merchant","Employee","Adminer","Audit");
+        strategy.setInclude("dish","production","Storage","Transport","Supplier","Company","Recall","Handover","User","Merchant","Employee","Adminer","Audit","WechatUser");
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);

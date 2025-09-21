@@ -31,6 +31,10 @@ public class Result<T> {
         return result;
     }
 
+    public Result(ResultCode resultCode) {
+        this.code = resultCode.code();
+        this.msg = resultCode.message();
+    }
     public static <T> Result<T> success(T data) {
         return new Result<>(200,true,"成功",data);
     }
@@ -51,6 +55,9 @@ public class Result<T> {
     public static Result error(String msg) {
         Result result = new Result(400,false,msg,null);
         return result;
+    }
+    public static Result error() {
+        return new Result(ResultCode.FAIL);
     }
 
     public static <T> Result<T> error( int code, String msg, T data) {
