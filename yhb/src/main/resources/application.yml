@@ -17,16 +17,14 @@ spring:
     password: zgnmbtmkvunpdbbc
     default-encoding: utf-8
 
-weixin:
-  appid: wx5ac13b1158b0319f
-  secret: '应用密钥'
+
 
 #--redis--
   redis:
-    host: 127.0.0.1 # Redis服务器地址
+    host: 0.0.0.0 # Redis服务器地址
     database: 0 # Redis数据库索引（默认为0）
     port: 6379 # Redis服务器连接端口
-    password: # Redis服务器连接密码（默认为空）
+    password: 124578 # Redis服务器连接密码（默认为空）
     lettuce:
       pool:
         max-active: 8 # 连接池最大连接数
@@ -65,3 +63,8 @@ dify:
   url: http://106.53.46.231:8000/v1/chat-messages
   key:
     test: app-xnhpDbVNJcsSFh6XPEBBXgne
+
+#--weixin--
+weixin:
+  appid: wx808b8f7b598f8a9b
+  secret: 2fa574fe4430d3f83b53f2f17c6afd16
