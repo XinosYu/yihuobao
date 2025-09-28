@@ -26,4 +26,6 @@ public interface UserService extends IService<User> {
 
     Result deleteUser(int id);
     Result editUser(int id);
+
+    User loadUserByUserName(String userName);
 }

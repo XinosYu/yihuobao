@@ -191,6 +191,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return null;
     }
 
+    @Override
+    public User loadUserByUserName(String userName){
+        return userMapper.selectByUserName(userName);
+    }
+
 
     private Result createTokenAndLogin(User user) {
         String token = UUID.randomUUID().toString();

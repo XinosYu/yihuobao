@@ -25,22 +25,22 @@ public class User implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  /**
-   * 用户ID（主键）
-   */
+  //用户id
   @TableId(type = IdType.AUTO)
   @IsKey
   @IsAutoIncrement
-  @Column(type = "int", comment = "用户ID", isNull = false)
-  private int id;
+  @Column(type = "varchar", comment = "用户ID", isNull = false)
+  private String id;
+
+  //用户名
+  @Column(name = "user_name", length = 20, comment = "用户名", type = "varchar", isNull = true)
+  private String userName;
 
   //手机号
   @Column(name = "phone_number", length = 20, comment = "手机号", type = "varchar", isNull = true)
   private String phoneNumber;
 
-  /**
-   * 邮箱地址
-   */
+  //邮箱
   @Column(name = "email", length = 20, comment = "邮箱", type = "varchar", isNull = true)
   private String email;
 
@@ -76,5 +76,9 @@ public class User implements Serializable {
     else if(RegexUtils.isValidEmail(account)){
       this.email = account;  // 符合邮箱格式则赋值给email
     }
+  }
+
+  User loadUserByUserName(String userName){
+
   }
 }
